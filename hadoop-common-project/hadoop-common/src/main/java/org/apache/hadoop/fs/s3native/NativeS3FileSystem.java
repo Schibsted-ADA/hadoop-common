@@ -331,7 +331,7 @@ public class NativeS3FileSystem extends FileSystem {
   }
   
   private static NativeFileSystemStore createDefaultStore(Configuration conf) {
-    NativeFileSystemStore store = new Jets3tNativeFileSystemStore();
+    NativeFileSystemStore store = new AmazonS3ClientNativeFileSystemStore();
     
     RetryPolicy basePolicy = RetryPolicies.retryUpToMaximumCountWithFixedSleep(
         conf.getInt("fs.s3.maxRetries", 4),

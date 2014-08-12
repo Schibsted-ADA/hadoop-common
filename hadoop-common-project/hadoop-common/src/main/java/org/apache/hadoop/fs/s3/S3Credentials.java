@@ -66,31 +66,6 @@ public class S3Credentials {
     if (secretAccessKey == null) {
       secretAccessKey = conf.get(secretAccessKeyProperty);
     }
-    if (accessKey == null && secretAccessKey == null) {
-      throw new IllegalArgumentException("AWS " +
-                                         "Access Key ID and Secret Access " +
-                                         "Key must be specified as the " +
-                                         "username or password " +
-                                         "(respectively) of a " + scheme +
-                                         " URL, or by setting the " +
-                                         accessKeyProperty + " or " +
-                                         secretAccessKeyProperty +
-                                         " properties (respectively).");
-    } else if (accessKey == null) {
-      throw new IllegalArgumentException("AWS " +
-                                         "Access Key ID must be specified " +
-                                         "as the username of a " + scheme +
-                                         " URL, or by setting the " +
-                                         accessKeyProperty + " property.");
-    } else if (secretAccessKey == null) {
-      throw new IllegalArgumentException("AWS " +
-                                         "Secret Access Key must be " +
-                                         "specified as the password of a " +
-                                         scheme + " URL, or by setting the " +
-                                         secretAccessKeyProperty +
-                                         " property.");       
-    }
-
   }
   
   public String getAccessKey() {
